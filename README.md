@@ -10,6 +10,21 @@ Nele estão contida as configurações das principais libs utilizadas para padro
 - tsconfig
 - debug vscode
 
+## Nesta feature
+
+Incluir o docker para uma aplicação contendo nodejs e postgres.
+Para utilização em conjunto com o postgres foi incluído o typeorm.
+
+Antes de rodar o docker não se esqueça de renomear o .env-example para .env
+
+Rode aplicação utilizando:
+
+```
+docker volume create --name=boilerplatedb
+docker-compose build
+docker-compose up -d
+```
+
 ### Extenções necessárias
 
 Estas são as extenções necessárias:

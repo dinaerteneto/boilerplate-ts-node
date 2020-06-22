@@ -1,0 +1,40 @@
+version: "3.3"
+services:
+  postgres:
+    image: postgres:12.3
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=boilerplate
+      - PGDATA=/var/lib/postgresql/data
+    env_file:
+      - ./.env
+    volumes:
+      - boilerplatedb:/var/lib/postgresql/data
+
+  app_backend:
+    build:
+      context: .
+      dockerfile: ./docker/DockerFile
+    ports:
+      - 3002:3002
+      - 9229:9229
+    volumes:
+      - .:/var/www/
+    command: yarn run dev:server
+    depends_on:
+      - postgres
+    links:
+      - "postgres:postgres"
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - 1080:1080
+      - 1025:1025
+
+volumes:
+  boilerplatedb:
+    external: true

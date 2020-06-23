@@ -4,5 +4,9 @@
   "port": 5432,
   "username": "postgres",
   "password": "docker",
-  "database": "boilerplate"
+  "database": "boilerplate",
+  "logging": true,
+  "entities": ["./src/models/*.ts"],
+  "migrations": ["./src/database/migrations/*.ts"],
+  "cli": { "migrationsDir": "./src/database/migrations" }
 }

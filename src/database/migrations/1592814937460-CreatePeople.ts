@@ -11,6 +11,7 @@ export class CreatePeople1592814937460 implements MigrationInterface {
             type: 'varchar',
             isPrimary: true,
             generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'type',
@@ -29,10 +30,12 @@ export class CreatePeople1592814937460 implements MigrationInterface {
           {
             name: 'created_at',
             type: 'timestamp with time zone',
+            default: 'now()',
           },
           {
             name: 'updated_at',
             type: 'timestamp with time zone',
+            default: 'now()',
           },
         ],
       })

@@ -25,6 +25,11 @@ docker-compose build
 docker-compose up -d
 ```
 
+Aqui iniciei a divisão de responsabilidades em módulos.
+O módulo fica responsável por controlar qual a lib da camada de orm e rotas por exemplo.
+Também foi adicionado containers para facilitar doa importação dos repositórios dentro do serviço.
+O container também facilita a troca do repositorio caso seja necessário trocar o orm utilizado dentro do repositório por exemplo.
+
 ### Extenções necessárias
 
 Estas são as extenções necessárias:

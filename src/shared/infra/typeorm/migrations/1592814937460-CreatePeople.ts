@@ -44,5 +44,6 @@ export class CreatePeople1592814937460 implements MigrationInterface {
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable('people');
+    await queryRunner.query('DROP TYPE people_type_enum;');
   }
 }

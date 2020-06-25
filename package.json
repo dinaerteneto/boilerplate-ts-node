@@ -10,6 +10,7 @@
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
+    "celebrate": "^12.1.1",
     "express": "^4.17.1",
     "pg": "^8.2.1",
     "tsyringe": "^4.3.0",

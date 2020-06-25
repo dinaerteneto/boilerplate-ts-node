@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { celebrate, Segments, Joi } from 'celebrate';
 import PeopleController from '../controllers/PeopleController';
 
 const routes = Router();
@@ -12,6 +13,18 @@ routes.get('/', async (request, response) => {
 });
 */
 
-routes.post('/', peopleController.create);
+routes.post(
+  '/',
+  celebrate({
+    [Segments.BODY]: {
+      name: Joi.string().required(),
+      document: Joi.number().required(),
+      type: Joi.string()
+        .valid(...['NATURAL', 'JURISTIC'])
+        .required(),
+    },
+  }),
+  peopleController.create
+);
 
 export default routes;
